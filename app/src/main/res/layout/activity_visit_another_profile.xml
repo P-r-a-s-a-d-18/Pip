@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".search.visit_another_profile.VisitOtherUserProfileScreen">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/closeOtherProfileScreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@null"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                app:srcCompat="@drawable/arrow_back"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/pip_show_ui_for_profile"
+                android:elevation="5dp"
+                android:paddingBottom="10dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/setDynamicColorOfAnotherProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="3dp"
+                        app:cardCornerRadius="100dp">
+
+                        <ImageView
+                            android:id="@+id/setUserImageInAnotherProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/usermodel" />
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/setUserNameInAnotherProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:theme="@style/TextView"
+                    app:layout_constraintStart_toEndOf="@+id/setDynamicColorOfAnotherProfile"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/setUserBioInAnotherProfile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center_horizontal"
+                    android:theme="@style/TextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/setDynamicColorOfAnotherProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/setUserNameInAnotherProfile"
+                    app:layout_constraintWidth_max="wrap" />
+
+                <ImageView
+                    android:id="@+id/locationImage"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/setDynamicColorOfAnotherProfile"
+                    app:srcCompat="@drawable/ic_baseline_location_on_24" />
+
+                <TextView
+                    android:id="@+id/setUserLocationInAnotherProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="16dp"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:theme="@style/TextView"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toEndOf="@+id/locationImage"
+                    app:layout_constraintTop_toBottomOf="@+id/setDynamicColorOfAnotherProfile" />
+
+                <ImageView
+                    android:id="@+id/webImage"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/locationImage"
+                    app:srcCompat="@drawable/ic_baseline_web_24" />
+
+                <TextView
+                    android:id="@+id/setUserWebsiteInAnotherProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="5dp"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:theme="@style/TextView"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toEndOf="@+id/webImage"
+                    app:layout_constraintTop_toBottomOf="@+id/setUserLocationInAnotherProfile" />
+
+                <ImageView
+                    android:id="@+id/dobImage"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/webImage"
+                    app:srcCompat="@drawable/ic_baseline_calendar_today_24" />
+
+                <TextView
+                    android:id="@+id/setUserDOBInAnotherProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="5dp"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:theme="@style/TextView"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toEndOf="@+id/dobImage"
+                    app:layout_constraintTop_toBottomOf="@+id/setUserWebsiteInAnotherProfile" />
+
+                <Button
+                    android:id="@+id/DoFollowOrUnfollow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/btn_with_roundborders"
+                    android:text="Follow"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintStart_toEndOf="@+id/followingClick"
+                    app:layout_constraintTop_toBottomOf="@+id/dobImage" />
+
+                <LinearLayout
+                    android:id="@+id/followingClick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dobImage">
+
+                    <TextView
+                        android:id="@+id/fingCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0"
+                        android:textSize="24sp"
+                        android:theme="@style/TextView" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Following"
+                        android:theme="@style/TextView" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/followerClcik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/divider2"
+                    app:layout_constraintTop_toBottomOf="@+id/dobImage">
+
+                    <TextView
+                        android:id="@+id/fwerCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0"
+                        android:textSize="24sp"
+                        android:theme="@style/TextView" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Follower"
+                        android:theme="@style/TextView" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/setAnotherUserPipData"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:elevation="10dp"
+                android:overScrollMode="never" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

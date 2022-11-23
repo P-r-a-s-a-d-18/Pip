@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/conID"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.edit.EditUserProfileScreen">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/closeEditScreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="24dp"
+                android:background="@null"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                app:srcCompat="@drawable/round_close"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="250dp"
+                app:layout_constraintCircleRadius="250dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="250dp">
+
+                    <ImageView
+                        android:id="@+id/setImageOfUser"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/usermodel" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/remove_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="2dp"
+                android:text="Remove Image"
+                android:textColor="@null"
+                android:textColorHint="@null"
+                android:theme="@style/TextView" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/username"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                tools:ignore="MissingConstraints">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/UserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:maxLength="20"
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/bio"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/UserBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="textMultiLine"
+                    android:maxLength="100" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/location"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/UserLocation"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_baseline_location_on_24"
+                    android:inputType="textShortMessage"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/website"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/UserWebsite"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:inputType="textShortMessage" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout6"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+
+                android:layout_marginEnd="32dp"
+                android:hint="@string/birth_date"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/datePicker"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
+                    android:inputType="date" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/saveChanges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="32dp"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:cornerRadius="10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/editText_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
