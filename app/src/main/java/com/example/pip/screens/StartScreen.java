@@ -23,14 +23,14 @@ import com.karumi.dexter.listener.single.PermissionListener;
 public class StartScreen extends AppCompatActivity {
 
     private Button createAccount;
-    private TextView loginbtn;
+    private Button logInbtn;
     FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        loginbtn = findViewById(R.id.loginBtn);
+        logInbtn = findViewById(R.id.logInBtn);
         createAccount = findViewById(R.id.createAccount);
         auth = FirebaseAuth.getInstance();
 
@@ -56,7 +56,7 @@ public class StartScreen extends AppCompatActivity {
                 .check();
 
         getSupportActionBar().hide();
-        loginbtn.setOnClickListener(view -> {
+        logInbtn.setOnClickListener(view -> {
             Intent loginpage = new Intent(this, LoginUserScreen.class);
             startActivity(loginpage);
 

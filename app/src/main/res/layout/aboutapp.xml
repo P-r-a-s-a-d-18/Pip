@@ -13,7 +13,7 @@
         android:layout_marginTop="32dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:text="Pip is a social media app which is developed by Niggas using the java programming language. The main motive of this app is to share your images and content."
+        android:text="IdeaSpace is a social media app which is developed by our Team using the Java programming language. The main motive of this app is to share your content."
         android:textSize="16sp"
         android:textStyle="bold"
         android:theme="@style/TextView"

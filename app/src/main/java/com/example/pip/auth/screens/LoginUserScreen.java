@@ -7,6 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +25,8 @@ import java.util.Objects;
 public class LoginUserScreen extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     private ActivityLoginUserBinding binding;
+    private EditText Edt_Email_id, Edt_Passwd;
+    private TextView TVCreate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,14 @@ public class LoginUserScreen extends AppCompatActivity {
         setContentView(binding.getRoot());
         firebaseAuth = FirebaseAuth.getInstance();
 
+        Button btnLogin = findViewById(R.id.idBtnLogin);
+
+        TVCreate = findViewById(R.id.idTVCreate);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         int modeFlag = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         switch (modeFlag) {
             case Configuration.UI_MODE_NIGHT_YES:
@@ -39,26 +52,26 @@ public class LoginUserScreen extends AppCompatActivity {
             case Configuration.UI_MODE_NIGHT_NO:
                 setUiAsLightMode();
                 break;
-            case Configuration.UI_MODE_NIGHT_UNDEFINED:
-                setUiAsLightMode();
-                break;
         }
 
-        binding.loginBtn.setOnClickListener(view -> {
-            String ust = Objects.requireNonNull(binding.takeEmailForLogin.getText()).toString().trim();
-            String pt = Objects.requireNonNull(binding.takePasswordForLogin.getText()).toString().trim();
+
+        btnLogin.setOnClickListener(view -> {
+            Edt_Email_id = findViewById(R.id.idEdtEmail_id);
+            Edt_Passwd = findViewById(R.id.idEdtPasswd);
+            String ust = Edt_Email_id.getText().toString().trim();
+            String pt = Edt_Passwd.getText().toString().trim();
             if (pt.isEmpty()) {
-                binding.takePasswordForLogin.setError("Fill the passwords");
-                binding.takePasswordForLogin.requestFocus();
+                Edt_Passwd.setError("Fill the passwords");
+                Edt_Passwd.requestFocus();
             } else if (ust.isEmpty()) {
-                binding.takeEmailForLogin.setError("Fill the passwords");
-                binding.takeEmailForLogin.requestFocus();
+                Edt_Email_id.setError("Fill the passwords");
+                Edt_Email_id.requestFocus();
             } else if (!ust.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")) {
-                binding.takeEmailForLogin.setError("Enter a valid email");
-                binding.takeEmailForLogin.requestFocus();
+                Edt_Email_id.setError("Enter a valid email");
+                Edt_Email_id.requestFocus();
             } else if (pt.length() <= 7) {
-                binding.takePasswordForLogin.setError("Your password must be 8 (Letters , Numbers , and other) mixing");
-                binding.takePasswordForLogin.requestFocus();
+                Edt_Passwd.setError("Your password must be 8 (Letters , Numbers , and other) mixing");
+                Edt_Passwd.requestFocus();
             } else {
                 binding.progressBar2.setVisibility(View.VISIBLE);
                 firebaseAuth.signInWithEmailAndPassword(ust, pt).addOnCompleteListener(LoginUserScreen.this, task -> {
@@ -75,6 +88,10 @@ public class LoginUserScreen extends AppCompatActivity {
 
         });
 
+        TVCreate.setOnClickListener(view -> {
+            Intent accountcreate = new Intent(this, RegisterUserScreen.class);
+            startActivity(accountcreate);
+        });
 
     }
 
@@ -89,7 +106,7 @@ public class LoginUserScreen extends AppCompatActivity {
     void setUiAsLightMode() {
         final Drawable upArrow = ContextCompat.getDrawable(this, R.drawable.arrow_back);
         assert upArrow != null;
-        upArrow.setColorFilter(ContextCompat.getColor(this, R.color.black), PorterDuff.Mode.SRC_ATOP);
+        upArrow.setColorFilter(ContextCompat.getColor(this, R.color.bg1), PorterDuff.Mode.SRC_ATOP);
         Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(upArrow);
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>Login your account</font>"));
     }

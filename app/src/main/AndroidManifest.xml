@@ -8,9 +8,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/pip"
-        android:label="@string/app_name"
-        android:roundIcon="@drawable/pip"
+        android:icon="@drawable/logo"
+        android:label="IdeaSpace"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Twitter">
         <activity

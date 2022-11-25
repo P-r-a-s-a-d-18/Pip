@@ -7,6 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +27,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Objects;
 
 public class RegisterUserScreen extends AppCompatActivity {
+    private EditText Edt_UserName, EdtEmailId, EdtPassword;
+    private Button BtnSignUp;
+    private TextView Signin;
     private FirebaseAuth firebaseAuth;
     private ActivityRegisterUserBinding binding;
 //    private boolean choiceDifferentUserName = false;
@@ -41,7 +47,9 @@ public class RegisterUserScreen extends AppCompatActivity {
         binding = ActivityRegisterUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        View v = binding.registerScreenRoot;
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
 
         int modeFlag = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
@@ -50,8 +58,6 @@ public class RegisterUserScreen extends AppCompatActivity {
                 setUiAsNightMode();
                 break;
             case Configuration.UI_MODE_NIGHT_NO:
-                setUiAsLightMode();
-                break;
             case Configuration.UI_MODE_NIGHT_UNDEFINED:
                 setUiAsLightMode();
                 break;
@@ -59,30 +65,38 @@ public class RegisterUserScreen extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        BtnSignUp = findViewById(R.id.idBtnSignUp);
 
-        binding.registerUserBtn.setOnClickListener(view -> {
-            String emailLength = Objects.requireNonNull(binding.takeUserEmailId.getText()).toString().trim();
-            String passwordLength = Objects.requireNonNull(binding.takeUserPassword.getText()).toString().trim();
-            String nameLength = Objects.requireNonNull(binding.takeUserName.getText()).toString().trim();
+        Signin = findViewById(R.id.idTVSignin);
+
+        EdtEmailId = findViewById(R.id.idEdtEmailId);
+        Edt_UserName = findViewById(R.id.idEdtUserName);
+        EdtPassword = findViewById(R.id.idEdtPassword);
+
+
+        BtnSignUp.setOnClickListener(view -> {
+            String emailLength = EdtEmailId.getText().toString().trim();
+            String passwordLength = EdtPassword.getText().toString().trim();
+            String nameLength = Edt_UserName.getText().toString().trim();
 
             connectivity = new NetworkFunctions().checkNetworkStatus(this);
 
             if (connectivity) {
                 if (passwordLength.isEmpty()) {
-                    binding.takeUserName.setError("Fill the passwords");
-                    binding.takeUserPassword.requestFocus();
+                    EdtPassword.setError("Fill the passwords");
+                    EdtPassword.requestFocus();
                 } else if (emailLength.isEmpty()) {
-                    binding.takeUserEmailId.setError("Fill your email section");
-                    binding.takeUserEmailId.requestFocus();
+                    EdtEmailId.setError("Fill your email section");
+                    EdtEmailId.requestFocus();
                 } else if (!emailLength.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")) {
-                    binding.takeUserEmailId.setError("Enter a valid email");
-                    binding.takeUserEmailId.requestFocus();
+                    EdtEmailId.setError("Enter a valid email");
+                    EdtEmailId.requestFocus();
                 } else if (passwordLength.length() <= 7) {
-                    binding.takeUserPassword.setError("Your password must be 8 (Letters , Numbers , and other) mixing");
-                    binding.takeUserPassword.requestFocus();
+                    EdtPassword.setError("Your password must be 8 (Letters , Numbers , and other) mixing");
+                    EdtPassword.requestFocus();
                 } else if (nameLength.isEmpty()) {
-                    binding.takeUserName.setError("Fill your username");
-                    binding.takeUserName.requestFocus();
+                    Edt_UserName.setError("Fill your username");
+                    Edt_UserName.requestFocus();
                 } else {
 
 //                FirebaseDatabase.getInstance().getReference("user").child("UserInfo").addValueEventListener(new ValueEventListener() {
@@ -168,12 +182,17 @@ public class RegisterUserScreen extends AppCompatActivity {
 //                }
                 }
             } else {
-                Snackbar.make(v, "Check your internet connection", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(RegisterUserScreen.this, "Check Your Network Connection !", Toast.LENGTH_SHORT).show();
             }
         });
 
-    }
+        Signin.setOnClickListener(view -> {
+            Intent loginpage = new Intent(this, LoginUserScreen.class);
+            startActivity(loginpage);
 
+        });
+
+    }
 
     void setUiAsNightMode() {
         final Drawable upArrow = ContextCompat.getDrawable(this, R.drawable.arrow_back);
